@@ -38,14 +38,3 @@ jobs:
         if: matrix.os == 'ubuntu-latest'
         path: build/app/outputs/flutter-apk/app-release.apk
 
-    - name: Setup Xcode (for iOS)
-      if: matrix.os == 'macos-latest'
-      uses: actions/setup-xcode@v2
-      with:
-        xcode-version: '12.x'
-
-    - name: Build iOS App (for iOS)
-      if: matrix.os == 'macos-latest'
-      run: |
-        xcodebuild -workspace YourApp.xcworkspace -scheme YourApp -destination 'platform=iOS Simulator,name=iPhone 12' clean build test
-
